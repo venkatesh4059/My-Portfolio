@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import styles from './VideoIntro.module.css';
 
 const CinematicLayer = dynamic(() => import('./CinematicLayer'), { ssr: false });
-const VIDEO_SRC = '/video/hero.mp4';
+const VIDEO_SRC = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/video/hero.mp4`;
 
 export default function VideoIntro() {
   const heroRef    = useRef(null);
