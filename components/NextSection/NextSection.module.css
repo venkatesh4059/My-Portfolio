@@ -1,0 +1,353 @@
+/* ═══════════════════════════════════════════════════════════
+   NextSection.module.css
+   ═══════════════════════════════════════════════════════════ */
+
+.section {
+  min-height: 100vh;
+  background: #060302;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8rem 7vw;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+/* ── Section header ── */
+.header { display:flex; flex-direction:column; gap:1rem; opacity:0; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: rgba(255,148,66,0.72);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem,1.2vw,1rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.7;
+  max-width: 480px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Project cards ── */
+.grid { display:flex; flex-direction:column; }
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr 40px;
+  align-items: start;
+  gap: 2rem;
+  padding: 2.4rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  opacity: 0;
+  border-radius: 4px;
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+.card:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.card:hover { padding-left:1.2rem; padding-right:1.2rem; background:rgba(255,255,255,0.022); }
+.card:hover .cardNum   { color:rgba(255,148,66,0.9); }
+.card:hover .cardArrow { opacity:1; transform:translateY(0) translateX(0); }
+.card:hover .cardTitle { color:#fff; }
+
+.cardNum {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.20);
+  letter-spacing: 0.1em;
+  padding-top: 0.35rem;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.cardBody { display:flex; flex-direction:column; gap:0.8rem; }
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem,2.5vw,2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.1;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.36);
+  line-height: 1.65;
+  max-width: 540px;
+  letter-spacing: 0.02em;
+}
+
+.tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.3rem; }
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.59rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,148,66,0.65);
+  border: 1px solid rgba(255,148,66,0.18);
+  border-radius: 100px;
+  padding: 0.22rem 0.7rem;
+  white-space: nowrap;
+  transition: border-color 0.3s, color 0.3s;
+}
+.card:hover .tag { border-color:rgba(255,148,66,0.35); color:rgba(255,148,66,0.95); }
+
+.cardArrow {
+  font-size: 1.1rem;
+  color: rgba(255,148,66,0.7);
+  opacity: 0;
+  transform: translateY(4px) translateX(-4px);
+  transition: opacity 0.25s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  padding-top: 0.2rem;
+  justify-self: end;
+}
+
+/* ── Skills block ── */
+.skillsBlock { display:flex; flex-direction:column; gap:3rem; }
+
+.skillsList { display:flex; flex-direction:column; gap:1.4rem; }
+
+.skillRow { display:flex; flex-direction:column; gap:0.5rem; opacity:0; }
+
+.skillMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.skillName {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.03em;
+}
+
+.skillLevel {
+  font-family: var(--font-mono);
+  font-size: 0.59rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.65rem;
+  border-radius: 100px;
+}
+
+.levelProficient {
+  color: rgba(255,148,66,0.95);
+  background: rgba(255,148,66,0.10);
+  border: 1px solid rgba(255,148,66,0.25);
+}
+
+.levelIntermediate {
+  color: rgba(255,148,66,0.70);
+  background: rgba(255,148,66,0.07);
+  border: 1px solid rgba(255,148,66,0.16);
+}
+
+.levelBeginner {
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.skillTrack {
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skillBar {
+  height: 100%;
+  width: var(--pct);
+  background: var(--col);
+  border-radius: 2px;
+  transform-origin: left center;
+}
+
+/* ── About strip ── */
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.aboutText {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem,1.3vw,1.05rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+.contacts { display:flex; flex-wrap:wrap; gap:1.2rem; }
+
+.contactLink {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: rgba(255,148,66,0.70);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,148,66,0.20);
+  padding-bottom: 0.15rem;
+  transition: color 0.25s, border-color 0.25s;
+}
+.contactLink:hover { color:rgba(255,148,66,1); border-color:rgba(255,148,66,0.6); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .section { padding:6rem 5.5vw; }
+  .inner { gap:4rem; }
+  .card { grid-template-columns:44px 1fr; }
+  .cardArrow { display:none; }
+  .card:hover { padding-left:0.6rem; padding-right:0.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .cardArrow, .tag { transition:none; }
+}
+
+/* ── Certifications ─────────────────────────────────────── */
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1px;
+  margin-top: 0.5rem;
+}
+
+.certCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.015);
+  opacity: 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+.certCard:hover {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,148,66,0.18);
+}
+
+.certTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.certIssuer {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,148,66,0.7);
+}
+
+.certDate {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.25);
+  white-space: nowrap;
+}
+
+.certTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.certDesc {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.certId {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+  align-self: flex-start;
+}
+
+.certLink {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,148,66,0.72);
+  text-decoration: none;
+  align-self: flex-start;
+  border-bottom: 1px solid rgba(255,148,66,0.22);
+  padding-bottom: 0.1rem;
+  margin-top: auto;
+  transition: color 0.25s, border-color 0.25s;
+}
+.certLink:hover {
+  color: rgba(255,148,66,1);
+  border-color: rgba(255,148,66,0.6);
+}
+
+/* ── Arrow as real link ──────────────────────────────────── */
+.cardArrow {
+  font-size: 1.15rem;
+  color: rgba(255,148,66,0.7);
+  opacity: 0;
+  transform: translateY(4px) translateX(-4px);
+  transition: opacity 0.25s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  padding-top: 0.2rem;
+  justify-self: end;
+  text-decoration: none;
+  cursor: pointer;
+}
+.card:hover .cardArrow {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
